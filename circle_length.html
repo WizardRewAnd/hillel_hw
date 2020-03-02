@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function circle_length() { //circle length 
+
+            let question_radius = confirm ('Do you know the radius of ur circle?');
+
+                if (question_radius == true ) {
+                    let length_radius = prompt ('Then tell me..','');
+                        if (length_radius > 0) {
+                            return ('Ur circle length is...'+ 2*3.14*length_radius);
+                        } else {
+                            alert('Incorrect data...try again')
+                }
+
+                } else {
+                    
+                    let question_diameter = prompt ('Then, tell me the diameter data','');
+
+                        if (question_diameter == true && question_diameter > 0 ) {
+                            return ('Ur circle length is..'+3.14*question_diameter);
+                        } else {
+                            alert('I cant do this without any data!');
+                        }
+                }
+            }
+                    
+    </script> 
+</body>
+</html>
