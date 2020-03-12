@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'Use strict'
+        let allPpl = [
+
+        {
+            name: "Alan Turing", 
+            b_age: 1912, 
+            sex: "male"
+            },
+        {
+            name: "William Gibson",
+            b_age: 1948, 
+            sex: "male"
+            },
+        {
+            name: "Grace Hopper", 
+            b_age: 1906, 
+            sex: "female"
+            },
+        {
+            name: "Ada Lovelace", 
+            b_age: 1815, 
+            sex: "female"
+            },
+        {
+            name: "Charles Babbage",
+            b_age: 1791, 
+            sex: "male"
+            },
+        
+        ];
+
+        let thisYear = new Date().getFullYear();
+        let t_age = 0;
+        let t_gender = 0;
+        let count = allPpl.length; 
+
+        function getAverageAge(allPpl) {
+            for (let i = 0; i < count; ++i) {
+            t_age += thisYear - allPpl[i].b_age;
+        }
+            let totalMale = count - t_gender;
+            let result = (t_age / count);
+            console.log(result);
+        }
+
+        function checkMostGender(allPpl) {
+            for (let i = 0; i < count; ++i) {
+                if (allPpl[i].sex === 'female')
+            ++t_gender;
+        }
+            let total_m = count - t_gender;
+            console.log (total_m - t_gender
+            ? (t_gender > total_m ? 'more female' : "more men")
+            : "equally");
+        }
+
+        </script>
+</body>
+</html>
