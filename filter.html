@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
+      
+        function filter(arr, cb) {
+            let fakeArr = [];
+            for(let i = 0; i <= arr.length - 1; i++) {
+                let newArr = fakeArr.length;
+                if (cb(arr[i])) {
+                    fakeArr[newArr] = arr[i];
+                }
+            }
+
+            return fakeArr;
+        }
+
+        const res = filter(arr, function(item) {
+            return item % 2 === 0;
+        });
+
+        console.log(res)
+ 
+    </script>
+</body>
+</html>
