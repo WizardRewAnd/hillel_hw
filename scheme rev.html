@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        const obj = {
+            name: 'Jack',
+            age: 100,
+            score: 42
+        }
+
+        function makeSchemeFromObj (obj) {
+            let result = (Object.entries(obj));
+            //Object.keys(obj).map(function(key) {
+                //return [obj[key]];
+            //});
+            console.log(result);
+        }
+    </script>
+
+</body>
+</html>

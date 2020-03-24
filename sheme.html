@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    'use strict'
+
+    const scheme = [
+        ['name', 'Jack'],
+        ['age', 25],
+        ['score', 95]
+    ];
+
+    function makeObjFromSch(arr) {
+        let obj = {};
+
+        arr.forEach (function (el) {
+            obj [el[0]] = el[1];
+        });
+        return obj;
+    }
+    console.log(makeObjFromSch(scheme));
+
+
+
+
+    </script>
+</body>
+</html>
