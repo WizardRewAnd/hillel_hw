@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use script'
+        const str = "12, 42, 63, 56, 122, 17, 117, 25, 645, 722, 964";
+
+        const result = str.split(', ').map(Number).filter(function (n) {
+            return n % 2 === 0;
+        });
+
+        console.log(result);
+        
+
+        </script>
+</body>
+</html>
