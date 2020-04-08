@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        padding: 300px 0 0 0;
+        max-width: 250px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .box {
+        width: 50px;
+        height: 50px;
+        background-color: grey;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .box:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        'use strict'
+        const $boxes = document.querySelectorAll('.box');
+        $boxes.forEach(function(box) {
+            box.addEventListener('click', function() {
+                const bgColor = this.style.backgroundColor;
+
+                switch (bgColor) {
+                default:
+                    this.style.backgroundColor = 'grey'; 
+                case 'grey':
+                    this.style.backgroundColor = 'blue';
+                break;
+                case 'blue':
+                    this.style.backgroundColor = 'green';
+                break;
+                case 'green':
+                    this.style.backgroundColor = 'yellow';
+                break;   
+                case 'yellow':
+                    this.style.backgroundColor = 'red';
+                break;  
+                }
+            });
+        }); 
+
+
+
+        
+        </script>
+</body>
+</html>
