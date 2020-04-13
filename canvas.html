@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    
+    <canvas id = "canvas" width = "500" height = "500"></canvas>
+
+    <script>
+        'use strict'
+        const canvas = document.getElementById('canvas');
+        const ctx =canvas.getContext('2d');
+
+        const a = canvas.width;
+        const b = canvas.height;
+        ctx.fillStyle = "Aquamarine"; 
+        ctx.fillRect (0, 350, 500, 500);
+
+        function drawSnowman(a,b) {//250 400
+        
+                ctx.beginPath();
+                ctx.arc(a, b, 70, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.stroke(); 
+                ctx.beginPath();
+                ctx.arc(a, b - 100, 70 - 20, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(a, (b - 100) - 70, 40, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+                ctx.stroke();
+            }
+
+        
+       
+
+
+
+      
+    </script>
+</body>
+</html>
