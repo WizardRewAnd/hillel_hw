@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table td {
+            cursor: pointer;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+    </style>
+
+    <div id = "elem"></div>
+    <div id = "result"></div>
+
+    <script>
+        'use strict'
+        const elem = document.querySelector('#elem');
+        let min = 1;
+        let max = 100;
+
+        createTable(elem, 3, 3);
+
+        function createRandom() {
+            return Math.floor(Math.random() * 9 + 1);
+        }
+
+        function createTable(parent, cols, rows) {
+            let table = document.createElement('table');
+            for (let i = 0; i < rows; i++) {
+                let tr = document.createElement('tr');
+
+                for (let j = 0; j < cols; j++) {
+                    let cell = document.createElement('td');
+                    let cellText = document.createTextNode(Math.floor(Math.random() * (max - min + 1)) + min);
+                    cell.appendChild(cellText);
+                    tr.appendChild(cell); 
+                }   
+
+
+                table.appendChild(tr);
+            }
+
+
+            parent.appendChild(table);
+        }
+
+        document.getElementById("elem").onclick = function (event) {
+	            event = event || window.event;
+	            let target = event.target || event.srcElement;
+	            if (target.tagName == "TD") {
+                    
+                   let result = target.innerHTML;
+                    
+                    document.getElementById('result').innerHTML = result;
+
+                }    
+	        };
+
+      
+
+        
+
+    </script>
+
+</body>
+</html>
