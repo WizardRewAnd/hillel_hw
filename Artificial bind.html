@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial bind</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        const fakeBind = function(fn, context) {
+            const necessaryArgsCount = 2;
+            const bindArgs = Array.prototype.slice.call(arguments, necessaryArgsCount);
+
+            return function() {
+                const fnArgs = Array.prototype.slice.call(arguments);
+                return fn.apply(context, bindArgs.concat(fnArgs))
+            }
+        };
+
+        function whoIs(phrase, symbol) {
+            return `${phrase} ${this.firstName} ${this.lastName}${symbol}`;
+        }
+
+        const john = {
+            firstName: 'John',
+            lastName: 'Galt',
+            age: 26,
+        };
+
+
+        const fnk = fakeBind(whoIs, john, 'Who is');
+
+        console.log(fnk('?','who is', 'john'));
+
+        </script>
+</body>
+</html>
