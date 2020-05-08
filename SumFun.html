@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function testSum() {
+        let x = 0;
+        return function (y) {
+            return x = x + y;
+            }
+        }
+
+        const variable1 = testSum();
+        const variable2 = testSum();
+
+        console.log(variable1(2));
+        console.log(variable1(4));
+        console.log(variable1(2));
+        console.log(variable1(2));
+        </script>
+</body>
+</html>
