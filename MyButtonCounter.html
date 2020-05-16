@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyButtonCounter</title>
+</head>
+<body>
+
+    <button class = "button twitter">Twitter</button>
+    <button class = "button facebook">Facebook</button>
+    <button class = "button reset">Reset Counter</button>
+
+    <style>
+        .button {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        'use strict'
+
+        const fbCounter = myCounter(0,1);
+        const twCounter = myCounter(0,1);
+        const reset = myCounter();
+
+        function myCounter(myCount, step) {
+
+            let acc = myCount;
+
+            return {
+
+                usualWay() {
+                return acc += step;
+
+                },
+
+                resetIt() {
+                
+                acc = myCount;
+
+                return acc;
+
+                }
+            };
+        };
+
+        const twitterBtn = document.querySelector('.twitter');
+            twitterBtn.addEventListener('click', function() {
+            console.log(twCounter.usualWay(),'twitter counter');
+
+        });
+
+        const facebookBtn = document.querySelector('.facebook');
+            facebookBtn.addEventListener('click', function() {
+            console.log(fbCounter.usualWay(),'facebook counter');
+
+        });
+
+        const resetBtn = document.querySelector('.reset');
+            resetBtn.addEventListener('click', function() {
+            console.log('FB counter is:',fbCounter.resetIt(), 'Twitter counter is',twCounter.resetIt());
+
+        });
+        
+
+    </script>
+</body>
+</html>
