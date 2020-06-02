@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<style>
+
+    .container { 
+        margin: 0 auto;
+        max-width: 500px;
+        border-radius: 8px;
+        border: 6px solid #7922CC;
+        background-color: #EEDDFF
+    }
+
+    .bigTitle {
+        font-family: sans-serif;
+        color: #e411c8;
+        text-align: center;
+    }
+
+    input {
+        margin: 10px;
+        padding: 10px;
+        width: 75%;
+        font-size: 16px;
+        border: 2px solid darkblue;
+        border-radius: 6px;
+    }
+
+    .addBtn {
+        width: 25%;
+        padding: 11px;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: sans-serif;
+    }
+
+    .addBtn:hover {
+        font-size: 22px;
+
+    }
+
+    ul li{
+        cursor: pointer;
+        font-size: 20px;
+        font-family: sans-serif;
+
+    }
+
+    ul li.checked {
+        font-family: sans-serif;
+        font-size: 20px;
+        text-decoration: line-through;
+    }
+
+.close:hover {
+        color: white;
+    }
+</style>
+
+
+<div class = container>
+    <div id = "myDIV" class = "header">
+        <h2 class = "bigTitle"> My To Do List</h2>
+        <input type = "text" id = "myInput" placeholder = "Title...">
+        <span onclick = "newElement()" class = "addBtn">Add</span>
+    </div>
+
+    <ul id = "myUL"></ul>
+</div>
+
+
+<script>
+
+    'use strict'
+    let myNodelist = document.getElementsByTagName("LI");
+
+    for (let i = 0; i < myNodelist.length; i++) {
+
+        let span = document.createElement("SPAN");
+        let txt = document.createTextNode("\u00D7");
+
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+
+    }
+
+    let close = document.getElementsByClassName("close");
+
+    for (let i = 0; i < close.length; i++) {
+
+        close[i].onclick = function() {
+
+        let div = this.parentElement;
+        div.style.display = "none";
+
+        }   
+    }
+
+    let list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+
+    if (ev.target.tagName === 'LI') {
+
+    ev.target.classList.toggle('checked');
+
+    }
+
+    }, false);
+
+    function newElement() {
+
+        let li = document.createElement("li");
+        let inputValue = document.getElementById("myInput").value;
+        let t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+
+        alert("You must write something!");
+
+        } else {
+
+        document.getElementById("myUL").appendChild(li);
+        }
+
+        document.getElementById("myInput").value = "";
+
+        let span = document.createElement("SPAN");
+        let txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (let i = 0; i < close.length; i++) {
+
+        close[i].onclick = function() {
+
+        let div = this.parentElement;
+        div.style.display = "none";
+
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>
