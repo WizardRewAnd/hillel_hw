@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="list"></ul>
+
+<style>
+
+    .list {
+    cursor: pointer;
+    }
+
+    .hidden{
+    display:none;
+    }
+
+</style>
+
+<script>
+    'use strict'
+    const list = document.querySelector('.list');
+
+    function test() {
+        return fetch('https://swapi.dev/api/films/', {
+        method: 'GET'
+    });
+    }
+
+    test()
+
+    .then(function(response) {
+        return response.json();
+    })
+
+    .then(function(data) {
+
+        data.results.forEach(function(episode) {
+
+        const ul = document.createElement('ul');
+
+        ul.classList.add('episode')
+        const ul_inner = document.createElement('ul');
+
+        ul_inner.classList.add('starships');
+        ul_inner.classList.add('episode-' + episode.episode_id)
+        ul_inner.classList.add('hidden');
+
+        episode.starships.forEach((starship)=>{
+        let episode_id = episode.episode_id;
+            fetch('https://'+starship.substr(7),{method:'GET',redirect:'follow'}).then((r)=>r.json())
+            
+            .then(d=>{
+
+            let li = document.createElement('li')
+            li.innerHTML = d.name;
+            document.querySelector('.episode-'+episode_id).append(li);
+            })
+        });
+
+            ul.innerHTML = episode.title+ul_inner.outerHTML;
+            list.append(ul);
+        })
+
+        document.querySelectorAll('.episode').forEach(elem=>{
+        elem.addEventListener('click', event => {
+        event.target.querySelector('.starships').classList.toggle('hidden');
+            });
+        })
+    })
+
+</script>
+
+</body>
+</html>
